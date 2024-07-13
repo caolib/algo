@@ -1,5 +1,5 @@
 /**
- * @brief 将数组左移p个位置
+ * @brief [2010 统考真题]将数组左移p个位置
  * @author clb (1265501579@qq.com)
  * @date 2024-07-08
  * @paragraph
