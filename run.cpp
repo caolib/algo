@@ -4,6 +4,7 @@
  */
 #include "2010.h"
 #include "2011.h"
+#include "2013.h"
 #include "func.h"
 #include <iostream>
 using namespace std;
@@ -38,11 +39,32 @@ void testMidNumber() {
 
   cout << midNumber(a, l1, b, l2) << endl;
 }
+
+/**
+ * @brief 测试寻找主元素
+ */
+void testMainElement() {
+  // 用例1
+  int a[] = {0, 5, 5, 3, 5, 7, 5, 5};
+  int l1 = sizeof(a) / sizeof(int);
+  int result = mainElement(a, l1);
+  cout << (result == -1 ? "不存在主元素！" : "主元素为" + to_string(result))
+       << endl;
+
+  // 用例2
+  int b[] = {0, 5, 5, 3, 5, 1, 5, 7};
+  int l2 = sizeof(b) / sizeof(int);
+  result = mainElement(b, l2);
+  cout << (result == -1 ? "不存在主元素！" : "主元素为" + to_string(result))
+       << endl;
+}
 int main() {
 
   // testMoveArray();
 
-  testMidNumber();
+  // testMidNumber();
+
+  testMainElement();
 
   return 0;
 }
