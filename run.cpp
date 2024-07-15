@@ -6,24 +6,25 @@
 #include "2011.h"
 #include "2013.h"
 #include "func.h"
+#include <functional>
 #include <iostream>
 using namespace std;
 
 /**
  * @brief 测试数组左移
  */
+void runMoveArray(int array[], int size, int p,
+                  function<void(int *, int, int)> shift) {
+  shift(array, size, p);
+  print(array, size);
+}
 void testMoveArray() {
   int array[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
   int size = sizeof(array) / sizeof(int);
-  // 左移1位
-  leftShiftArray(array, size, 1);
-  print(array, size);
-  // 左移2位
-  leftShiftArray(array, size, 2);
-  print(array, size);
-  // 左移3位
-  leftShiftArray(array, size, 3);
-  print(array, size);
+  // 左移1/2/3位
+  runMoveArray(array, size, 1, leftShiftArray);
+  runMoveArray(array, size, 2, leftShiftArray);
+  runMoveArray(array, size, 3, leftShiftArray);
 }
 
 /**
@@ -43,20 +44,31 @@ void testMidNumber() {
 /**
  * @brief 测试寻找主元素
  */
+void runMainElement(int a[], int len, function<int(int *, int)> func,
+                    string s) {
+  int result = func(a, len);
+  cout << (result == -1 ? "不存在主元素！" : "主元素为" + to_string(result))
+       << "\t\t[" << s << "]" << endl;
+}
+
 void testMainElement() {
-  // 用例1
+  // 数组模拟哈希表解法
   int a[] = {0, 5, 5, 3, 5, 7, 5, 5};
   int l1 = sizeof(a) / sizeof(int);
-  int result = mainElement(a, l1);
-  cout << (result == -1 ? "不存在主元素！" : "主元素为" + to_string(result))
-       << endl;
-
-  // 用例2
   int b[] = {0, 5, 5, 3, 5, 1, 5, 7};
   int l2 = sizeof(b) / sizeof(int);
-  result = mainElement(b, l2);
-  cout << (result == -1 ? "不存在主元素！" : "主元素为" + to_string(result))
-       << endl;
+  string s = "数组模拟哈希表解法";
+  runMainElement(a, l1, mainElementI, s);
+  runMainElement(b, l2, mainElementI, s);
+
+  // 哈希表解法
+  s = "哈希表解法";
+  runMainElement(a, l1, mainElementII, s);
+  runMainElement(b, l2, mainElementII, s);
+  // 暴力解法
+  s = "暴力解法";
+  runMainElement(a, l1, mainElementIII, s);
+  runMainElement(b, l2, mainElementIII, s);
 }
 int main() {
 
