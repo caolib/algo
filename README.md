@@ -1,1 +1,1 @@
-![Alt](https://repobeats.axiom.co/api/embed/a27995f8a16180b781c15de8de951988c1eedf85.svg "Repobeats analytics image")
+![algo](https://socialify.git.ci/caolib/algo/image?font=Source%20Code%20Pro&language=1&logo=https%3A%2F%2Fs2.loli.net%2F2024%2F06%2F02%2FwuJknzxaFigDSdL.gif&name=1&owner=1&pattern=Floating%20Cogs&theme=Auto)

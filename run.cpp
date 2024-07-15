@@ -5,6 +5,7 @@
 #include "2010.h"
 #include "2011.h"
 #include "2013.h"
+#include "2018.h"
 #include "func.h"
 #include <functional>
 #include <iostream>
@@ -70,13 +71,37 @@ void testMainElement() {
   runMainElement(a, l1, mainElementIII, s);
   runMainElement(b, l2, mainElementIII, s);
 }
+
+// 2018
+void runFindNotExist(int array[], int len, function<int(int *, int)> function,
+                     string s) {
+  cout << "不存在最小正整数为：" << function(array, len) << "\t\t[" << s << "]"
+       << endl;
+}
+
+void testFindNotExist() {
+  int a[] = {-5000, 3, 1, 3};
+  int l1 = sizeof(a) / sizeof(int);
+  int b[] = {1, 2, 3};
+  int l2 = sizeof(b) / sizeof(int);
+  string s = "暴力解法";
+  runFindNotExist(a, l1, findNotExistII, s);
+  runFindNotExist(b, l2, findNotExistII, s);
+
+  s = "数组解法";
+  runFindNotExist(a, l1, findNotExist, s);
+  runFindNotExist(b, l2, findNotExist, s);
+}
+
 int main() {
 
   // testMoveArray();
 
   // testMidNumber();
 
-  testMainElement();
+  // testMainElement();
+
+  testFindNotExist();
 
   return 0;
 }
