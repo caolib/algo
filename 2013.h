@@ -33,7 +33,7 @@ int mainElementI(int array[], int len) {
 }
 
 /**
- * @brief 哈希表解法
+ * @brief 哈希表解法(408可能不允许使用STL模板库)
  * @paragraph
  * 算法思想：使用哈希表统计数组中每个数出现的次数，遍历哈希表找出主元素
  * 时间复杂度：O(n),2个单层for循环;unordered_map操作平均为O(1)
