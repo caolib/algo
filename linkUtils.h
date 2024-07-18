@@ -57,7 +57,6 @@ LinkList geneLinkedList(int size) {
   n3->link = n4;
   n4->link = n5;
   n5->link = nullptr; // 链表末尾
-
   return head;
 }
 

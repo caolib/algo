@@ -5,6 +5,7 @@
 #include "2009.h"
 #include "2012.h"
 #include "2015.h"
+#include "2019.h"
 #include "func.h"
 #include <functional>
 
@@ -55,12 +56,26 @@ void testDeleteSame() {
 
   deleteLinkedList(list);
 }
+
+void testRefactorLink() {
+  int a[] = {1, 2, 3, 4, 5, 6, 7};
+  LinkList head = geneLinkedList(a, 7);
+  printLinkedList(head);
+
+  refactorLink(head);
+
+  printLinkedList(head);
+
+  deleteLinkedList(head);
+}
 int main() {
 
   // testFindNode();
 
   // testFindCross();
 
-  testDeleteSame();
+  // testDeleteSame();
+
+  testRefactorLink();
   return 0;
 }
