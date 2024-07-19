@@ -6,6 +6,7 @@
 #include "2011.h"
 #include "2013.h"
 #include "2018.h"
+#include "2020.h"
 #include "func.h"
 #include <functional>
 #include <iostream>
@@ -93,6 +94,15 @@ void testFindNotExist() {
   runFindNotExist(b, l2, findNotExist, s);
 }
 
+void testFindMinDistance() {
+  int s1[] = {-1, 0, 9};
+  int s2[] = {-25, -10, 10, 11};
+  int s3[] = {2, 9, 17, 30, 41};
+
+  int min = findMinDistance(s1, 3, s2, 4, s3, 5);
+  cout << "最小距离：" << min << endl;
+}
+
 int main() {
 
   // testMoveArray();
@@ -102,6 +112,8 @@ int main() {
   // testMainElement();
 
   // testFindNotExist();
+
+  testFindMinDistance();
 
   return 0;
 }

@@ -19,3 +19,27 @@ void print(int arr[], int len) {
   }
   cout << "]" << endl;
 }
+
+/**
+ * @brief 二分查找
+ * @param a 有序数组
+ * @param size 数组大小
+ * @param e 目标元素
+ * @return int 找到 -> 目标元素索引;没找到 -> 目标元素应该插入的位置
+ */
+int binarySearch(int a[], int size, int e) {
+  int left = 0, right = size - 1;
+  int mid;
+  while (left <= right) {
+    mid = (left + right) / 2;
+    if (a[mid] == e) {
+      return mid;
+    }
+    if (e < a[mid]) {
+      right = mid - 1;
+    } else if (e > a[mid]) {
+      left = mid + 1;
+    }
+  }
+  return -left - 1;
+}
