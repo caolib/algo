@@ -1,7 +1,7 @@
 #pragma once
 #include <iostream>
 using namespace std;
-// 链表节点
+// 单链表节点
 typedef struct LinkNode {
   int data;
   struct LinkNode *link;
