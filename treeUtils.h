@@ -54,3 +54,9 @@ BTree *createExpressionTreeII() {
 
   return expressionTree; // 返回构建完成的树的根节点
 }
+
+// 2014
+typedef struct Node {
+  int weight;
+  struct Node *left, *right;
+} BTreeII;
