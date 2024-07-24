@@ -20,6 +20,14 @@ void print(int arr[], int len) {
   cout << "]" << endl;
 }
 
+void print(int arr[], int low, int high) {
+  cout << "[ ";
+  for (int i = low; i < high; i++) {
+    cout << arr[i] << " ";
+  }
+  cout << "]" << endl;
+}
+
 /**
  * @brief 二分查找
  * @param a 有序数组
