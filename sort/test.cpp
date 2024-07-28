@@ -11,32 +11,28 @@
  * @brief 排序算法测试
  * @param sort 排序函数
  */
-void testSortAlgorithm(int *a, int size, function<void(int *, int, int)> sort) {
-  shuffleArray(a, size);
-  cout << "排序前：";
+void testSortAlgorithm(function<void(int *, int, int)> sort) {
+  int a[] = {4, 3, 2, 6, 8, -3, 5};
+  int size = sizeof(a) / sizeof(a[0]);
   print(a, size);
   sort(a, 0, size - 1);
-  cout << "排序后：";
   print(a, size);
   cout << endl;
 }
-void testSortAlgorithm(int *a, int size, function<void(int *, int)> sort) {
-  shuffleArray(a, size);
-  cout << "排序前：";
+void testSortAlgorithm(function<void(int *, int)> sort) {
+  int a[] = {4, 3, 2, 6, 8, -3, 5};
+  int size = sizeof(a) / sizeof(int);
   print(a, size);
-  sort(a, size - 1);
-  cout << "排序后：";
+  sort(a, size);
   print(a, size);
   cout << endl;
 }
 
 int main() {
 
-  int a[] = {4, 3, 2, 6, 8, -3, 5};
-  int size = sizeof(a) / sizeof(a[0]);
-
-  testSortAlgorithm(a, size, quickSort);  // 快排
-  testSortAlgorithm(a, size, bubbleSort); // 冒泡
+  testSortAlgorithm(quickSort);    // 快排
+  testSortAlgorithm(bubbleSort);   // 冒泡
+  testSortAlgorithm(bubbleSortII); // 冒泡II
 
   return 0;
 }

@@ -65,9 +65,17 @@ int main() {
   graph.Edge[4][3] = 1;
 
   printGraph(graph);
+  /**
+        A B C D E
+      A 0 1 1 0 0
+      B 0 0 1 1 0
+      C 0 0 0 1 1
+      D 0 0 0 0 1
+      E 1 1 1 1 0
+   */
 
   int k = printVertices(graph);
-  std::cout << "Number of K vertices: " << k << std::endl;
+  cout << "Number of K vertices: " << k << endl;
 
   return 0;
 }

@@ -51,3 +51,32 @@ int binarySearch(int a[], int size, int e) {
   }
   return -left - 1;
 }
+
+/**
+ * @brief 打印邻接表
+ * @param graph 图的邻接矩阵
+ */
+#define MAXV 100
+typedef struct {
+  int numVertices, numEdges; // 图的顶点数和有向边数
+  char VerticesList[MAXV];   // 顶点表，MAXV为已定义常量
+  int Edge[MAXV][MAXV];      // 邻接矩阵
+} MGraph;
+void printGraph(MGraph graph) {
+  // 打印顶点列表
+  cout << "  ";
+  for (int i = 0; i < graph.numVertices; i++) {
+    std::cout << graph.VerticesList[i] << " ";
+  }
+  std::cout << std::endl;
+
+  // 打印邻接矩阵
+  for (int i = 0; i < graph.numVertices; i++) {
+    // 打印行首的顶点
+    std::cout << graph.VerticesList[i] << " ";
+    for (int j = 0; j < graph.numVertices; j++) {
+      std::cout << graph.Edge[i][j] << " ";
+    }
+    std::cout << std::endl;
+  }
+}

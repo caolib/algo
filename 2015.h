@@ -18,7 +18,7 @@
  * @param m 节点个数
  * @param n 数据绝对值最大值，正整数
  */
-LinkList deleteSameNode(LinkList head, int m, int n) {
+LinkList deleteSameNode(LinkList head, int n) {
   bool flag[n + 1]; // 数据是否已经出现，索引为0~n
   for (int i = 0; i < n + 1; i++) {
     flag[i] = false;
