@@ -33,14 +33,15 @@ void testMoveArray() {
  * @brief 测试寻找两个数组的中位数
  */
 void testMidNumber() {
-  // int a[] = {11, 13, 15, 17, 19};
-  int a[] = {1, 2, 5};
+  int a[] = {11, 13, 15, 17, 19};
+  // int a[] = {1, 2, 5};
   int l1 = sizeof(a) / sizeof(int);
-  // int b[] = {2, 4, 6, 8, 20};
-  int b[] = {0, 7, 8};
+  int b[] = {2, 4, 6, 8, 20};
+  // int b[] = {0, 7, 8};
   int l2 = sizeof(b) / sizeof(int);
 
   cout << midNumber(a, l1, b, l2) << endl;
+  cout << midNumberII(a, l1, b, l2) << endl;
 }
 
 /**
@@ -107,13 +108,13 @@ int main() {
 
   // testMoveArray();
 
-  // testMidNumber();
+  testMidNumber();
 
   // testMainElement();
 
   // testFindNotExist();
 
-  testFindMinDistance();
+  // testFindMinDistance();
 
   return 0;
 }

@@ -6,13 +6,9 @@
  * @author clb (1265501579@qq.com)
  * @date 2024-07-13
  * @paragraph
- * 算法思想：将两个数组合并为一个升序数组，然后找出中位数即可
+ * 算法思想：将两个数组合并为一个升序数组，然后找出中位数即可(归并排序一次归并)
  * 时间复杂度：O(n),只有单层while循环
  * 空间复杂度：O(n),使用了一个辅助数组，长度为两个数组长度之和
- * @param a 数组a
- * @param l1 数组a的长度
- * @param b 数组b
- * @param l2 数组b的长度
  */
 int midNumber(int a[], int l1, int b[], int l2) {
   int len = l1 + l2;
@@ -48,4 +44,48 @@ int midNumber(int a[], int l1, int b[], int l2) {
   index = len / 2;
   // 返回中位数
   return target[index];
+}
+
+/**
+ * @brief 两个数组升序，使用双指针一边比较一边移动
+ */
+// FIXME 结果和正确结果相差一个位置
+int midNumberII(int a[], int l1, int b[], int l2) {
+  int i = 0, j = 0;
+  int count = (l1 + l2) / 2;
+  int min1 = 0, min2 = 0;
+  bool isEven = (l1 + l2) % 2 == 0;
+
+  while (i < l1 && j < l2 && count >= 0) {
+    if (a[i] < b[j]) {
+      min2 = min1;
+      min1 = a[i];
+      i++;
+    } else {
+      min2 = min1;
+      min1 = b[j];
+      j++;
+    }
+    count--;
+  }
+
+  while (count >= 0 && i < l1) {
+    min2 = min1;
+    min1 = a[i];
+    i++;
+    count--;
+  }
+
+  while (count >= 0 && j < l2) {
+    min2 = min1;
+    min1 = b[j];
+    j++;
+    count--;
+  }
+
+  if (isEven) {
+    return (min1 + min2) / 2;
+  } else {
+    return min1;
+  }
 }
