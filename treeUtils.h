@@ -60,3 +60,29 @@ typedef struct Node {
   int weight;
   struct Node *left, *right;
 } BTreeII;
+
+// 释放二叉树的内存
+void deleteTree(BTreeII *t) {
+  if (t == nullptr)
+    return;
+  deleteTree(t->left);
+  deleteTree(t->right);
+  delete t;
+}
+
+// 辅助函数，用于打印二叉树
+void printTree(Node *node, int depth = 0) {
+  if (node == nullptr)
+    return;
+
+  // 打印右子树
+  printTree(node->right, depth + 1);
+
+  // 打印当前节点
+  for (int i = 0; i < depth; ++i)
+    std::cout << "    "; // 每个深度缩进4个空格
+  std::cout << node->weight << std::endl;
+
+  // 打印左子树
+  printTree(node->left, depth + 1);
+}

@@ -19,18 +19,26 @@
  * @param low 数组的起始下标
  * @param high 数组的结束下标
  */
+
+void swap(int &a, int &b) {
+  int temp = a;
+  a = b;
+  b = temp;
+}
+
 void quickSort(int a[], int low, int high) {
   if (low >= high)
-    return;
+    return; // 元素个数小于等于1时返回
   int i = low, j = high;
+  int pivot = a[low]; // 选取第一个数作为基准点
   while (i < j) {
-    while (i < j && a[j] >= a[low]) // 选取第一个数作为基准点，先从右往左扫描
+    while (i < j && a[j] >= pivot) // 先从右往左扫描,找到第一个小于基准点的数
       j--;
-    while (i < j && a[i] <= a[low])
+    while (i < j && a[i] <= pivot) // 再从左往右扫描,找到第一个大于基准点的数
       i++;
-    swap(a[i], a[j]);
+    swap(a[i], a[j]); // 交换左右指针所指元素
   }
-  swap(a[low], a[i]);
+  swap(a[low], a[i]); // 将基准点放到ij相遇的位置
   quickSort(a, low, i - 1);
   quickSort(a, i + 1, high);
 }

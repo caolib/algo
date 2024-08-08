@@ -12,6 +12,7 @@
  * @param sort 排序函数
  */
 void testSortAlgorithm(function<void(int *, int, int)> sort) {
+  // int a[] = {1, 1, 1, 1, 1};
   int a[] = {4, 3, 2, 6, 8, -3, 5};
   int size = sizeof(a) / sizeof(a[0]);
   print(a, size);
