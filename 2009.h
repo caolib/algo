@@ -40,3 +40,23 @@ int findNode(LinkList list, int k) {
   }
   return 0;
 }
+
+int findNode(LinkList list, int k) {
+  LinkNode *p = list;
+  LinkNode *q = list;
+  // q先走k步
+  for (int i = 0; i < k; i++) {
+    if (q->link != nullptr) {
+      q = q->link;
+    } else {
+      return 0;
+    }
+  }
+  // q和p一起走，直到q走到链表尾部
+  while (q->link != nullptr) {
+    p = p->link;
+    q = q->link;
+  }
+  cout << "结点值为:" << p->data;
+  return 1;
+}

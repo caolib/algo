@@ -1,6 +1,8 @@
 /**
  * @author libin (1265501579@qq.com)
  * @date 2024-08-21
+ * @paragraph
+ * 插入排序：遍历数组每个元素，将各个元素插入到有序序列中，初始时一个数就是有序的
  */
 
 void insertSort(int a[], int size) {

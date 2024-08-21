@@ -48,10 +48,12 @@ int depart(int a[], int size) {
 }
 
 int main() {
-  int a[] = {2, 1, 4, 3, 5, 6};
-  int n = sizeof(a) / sizeof(a[0]);
+  // int a[] = {2, 1, 4, 3, 5, 6};
+  // int n = sizeof(a) / sizeof(a[0]);
 
-  cout << depart(a, n) << endl;
+  // cout << depart(a, n) << endl;
 
+  double a = 1;
+  cout << a << endl;
   return 0;
 }

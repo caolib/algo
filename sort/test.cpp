@@ -4,6 +4,7 @@
  */
 #include "../func.h"
 #include "./insertSort.h"
+#include "./selectSort.h"
 #include "bubbleSort.h"
 #include "quickSort.h"
 #include "utils.h"
@@ -36,6 +37,7 @@ int main() {
   testSortAlgorithm(bubbleSort);   // 冒泡
   testSortAlgorithm(bubbleSortII); // 冒泡II
   testSortAlgorithm(insertSort);   // 插入排序
+  testSortAlgorithm(selectSort);   // 选择排序
 
   return 0;
 }

@@ -7,8 +7,6 @@
  * @details
  * 算法思想：
  * - 遍历图中的每个顶点，判断其出度是否大于入度，如果是，输出该顶点，K顶点数+1
- * - 每行
- * - 返回K顶点集合的大小
  */
 
 #include "func.h"
@@ -28,12 +26,10 @@ int printVertices(MGraph m) {
     int in = 0, out = 0;
     // 统计出、入度
     for (int j = 0; j < v; j++) {
-      if (i != j) {
-        if (m.Edge[i][j] != 0)
-          out++;
-        if (m.Edge[j][i] != 0)
-          in++;
-      }
+      if (m.Edge[i][j])
+        out++;
+      if (m.Edge[j][i])
+        in++;
     }
     if (out > in) { // 出度大于入度，K顶点数+1，输出顶点
       k++;
@@ -65,6 +61,7 @@ int main() {
   graph.Edge[4][3] = 1;
 
   printGraph(graph);
+  cout << endl;
   /**
         A B C D E
       A 0 1 1 0 0
@@ -75,7 +72,7 @@ int main() {
    */
 
   int k = printVertices(graph);
-  cout << "Number of K vertices: " << k << endl;
+  cout << "\nNumber of K vertices: " << k << endl;
 
   return 0;
 }
