@@ -20,11 +20,7 @@
  * @param high 数组的结束下标
  */
 
-void swap(int &a, int &b) {
-  int temp = a;
-  a = b;
-  b = temp;
-}
+#include "./utils.h"
 
 void quickSort(int a[], int low, int high) {
   if (low >= high)

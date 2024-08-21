@@ -1,0 +1,17 @@
+/**
+ * @author libin (1265501579@qq.com)
+ * @date 2024-08-21
+ */
+
+void insertSort(int a[], int size) {
+  for (int i = 1; i < size; i++) { // 有序区间为 [0,i-1]
+    int b = a[i]; // 待插入元素b为有序区间下一个元素
+    int j = i - 1;
+    // 在有序区间找 <= b 的数
+    while (j >= 0 && b < a[j]) {
+      a[j + 1] = a[j]; // 后移一位
+      j--;
+    }
+    a[j + 1] = b;
+  }
+}
