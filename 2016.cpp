@@ -10,50 +10,51 @@
 #include <iostream>
 using namespace std;
 
-void swap(int &a, int &b) {
-  int temp = a;
-  a = b;
-  b = temp;
+void swap(int& a, int& b){
+    int temp = a;
+    a = b;
+    b = temp;
 }
 
-void quickSort(int a[], int low, int high) {
-  if (low >= high)
-    return;
-  int i = low, j = high; // 左右指针
-  while (i < j) {
-    while (i < j && a[j] >= a[low])
-      j--;
-    while (i < j && a[i] <= a[low])
-      i++;
-    swap(a[i], a[j]);
-  }
-  swap(a[low], a[i]);
-  quickSort(a, low, i - 1);
-  quickSort(a, i + 1, high);
+void quickSort(int a[], int low, int high){
+    if (low >= high)
+        return;
+    int i = low, j = high; // 左右指针
+    while (i < j){
+        while (i < j && a[j] >= a[low])
+            j--;
+        while (i < j && a[i] <= a[low])
+            i++;
+        swap(a[i], a[j]);
+    }
+    swap(a[low], a[i]);
+    quickSort(a, low, i - 1);
+    quickSort(a, i + 1, high);
 }
 
-int depart(int a[], int size) {
-  quickSort(a, 0, size - 1);
-  print(a, size);
-  int mid = size % 2 == 0 ? (size - 1) / 2 : (size - 1) / 2 - 1;
-  int s1 = 0, s2 = 0;
-  for (int i = 0; i <= mid; i++)
-    s1 += a[i];
-  for (int j = mid + 1; j < size; j++)
-    s2 += a[j];
+int depart(int a[], int size){
+    quickSort(a, 0, size - 1);
+    print(a, size);
+    int mid = size % 2 == 0 ? (size - 1) / 2 : (size - 1) / 2 - 1;
+    int s1 = 0, s2 = 0;
+    for (int i = 0; i <= mid; i++)
+        s1 += a[i];
+    for (int j = mid + 1; j < size; j++)
+        s2 += a[j];
 
-  cout << "s1: " << s1 << endl;
-  cout << "s2: " << s2 << endl;
-  return s2 - s1;
+    cout << "s1: " << s1 << endl;
+    cout << "s2: " << s2 << endl;
+    return s2 - s1;
 }
 
-int main() {
-  // int a[] = {2, 1, 4, 3, 5, 6};
-  // int n = sizeof(a) / sizeof(a[0]);
+int main(){
+    // int a[] = {2, 1, 4, 3, 5, 6};
+    // int n = sizeof(a) / sizeof(a[0]);
 
-  // cout << depart(a, n) << endl;
+    // cout << depart(a, n) << endl;
 
-  double a = 1;
-  cout << a << endl;
-  return 0;
+    double a = 1;
+    cout << a << endl;
+    system("pause");
+    return 0;
 }

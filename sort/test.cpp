@@ -4,6 +4,7 @@
  */
 #include "../func.h"
 #include "./insertSort.h"
+#include "./qSort.h"
 #include "./selectSort.h"
 #include "bubbleSort.h"
 #include "quickSort.h"
