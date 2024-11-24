@@ -23,10 +23,15 @@ void runMoveArray(int array[], int size, int p,
 void testMoveArray() {
   int array[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
   int size = sizeof(array) / sizeof(int);
+  print(array,size);
+  cout<<endl;
   // 左移1/2/3位
   runMoveArray(array, size, 1, leftShiftArray);
+  runMoveArray(array, size, 1, leftShiftArrayII);
   runMoveArray(array, size, 2, leftShiftArray);
+  runMoveArray(array, size, 2, leftShiftArrayII);
   runMoveArray(array, size, 3, leftShiftArray);
+  runMoveArray(array, size, 3, leftShiftArrayII);
 }
 
 /**
@@ -105,9 +110,9 @@ void testFindMinDistance() {
 
 int main() {
 
-  // testMoveArray();
+  testMoveArray();
 
-  testMidNumber();
+  // testMidNumber();
 
   // testMainElement();
 

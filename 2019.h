@@ -1,4 +1,7 @@
-#pragma once
+#ifndef _2019_H_
+#define _2019_H_
+
+
 #include "./linkUtils.h"
 /**
  * @brief [2019 统考真题]
@@ -48,3 +51,5 @@ LinkList refactorLink(LinkList head) {
   }
   return head;
 }
+
+#endif // _2019_H_

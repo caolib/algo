@@ -1,3 +1,6 @@
+#ifndef _2009_H_
+#define _2009_H_
+
 #include "linkUtils.h"
 
 /**
@@ -60,3 +63,5 @@ int findNode(LinkList list, int k) {
   cout << "结点值为:" << p->data;
   return 1;
 }
+
+#endif // _2009_H_

@@ -23,3 +23,12 @@ void leftShiftArray(int array[], int len, int p) {
     array[i] = a[i];
   }
 }
+
+
+void leftShiftArrayII(int R[], int n, int p) {
+  int a[p];
+  for(int i=0;i<p;i++) a[i] = R[i];
+  for(int i=p;i<n;i++) R[i-p] = R[i];
+  int i = 0,j = n-p;
+  while(i<p) R[j++] = a[i++];
+}

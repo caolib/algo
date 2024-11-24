@@ -1,4 +1,5 @@
-#pragma once
+#ifndef LINKUTILS_H
+#define LINKUTILS_H
 #include <iostream>
 using namespace std;
 // 单链表节点
@@ -97,3 +98,5 @@ void deleteLinkedList(LinkList head) {
     current = next; // 移动到下一个节点
   }
 }
+
+#endif // LINKUTILS_H
