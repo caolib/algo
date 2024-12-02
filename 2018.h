@@ -12,6 +12,9 @@
  */
 int findNotExist(int array[], int len) {
   bool exist[len + 2]; // 索引为0~len+1,可以包含所有情况
+
+  for(int i=0;i<len+2;i++) exist[i] = 0;
+
   // 统计数组元素出现情况
   for (int i = 0; i < len; i++)
     // 只统计1~len+1范围内的数

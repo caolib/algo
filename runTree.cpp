@@ -37,13 +37,18 @@ void test2017() {
   inOrder(createExpressionTree(), true);
   cout << endl;
   inOrder(createExpressionTreeII(), true);
+
+  cout<<endl;
+  func(createExpressionTree());
+  cout<<endl;
+  func(createExpressionTreeII());
 }
 
 int main() {
 
-  test2014();
+  // test2014();
 
-  // test2017();
+  test2017();
 
   return 0;
 }

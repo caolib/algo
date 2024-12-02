@@ -11,16 +11,30 @@
 #include "./treeUtils.h"
 
 void inOrder(BTree *root, int deep) {
-  if (root == nullptr)
-    return;
+  if (root == nullptr) return;
   bool flag = (root->left != nullptr || root->right != nullptr) && (deep != 1);
-  if (flag) {
-    cout << "(";
-  }
+  if (flag) cout << "(";
+  
   inOrder(root->left, deep + 1);
   cout << root->data;
   inOrder(root->right, deep + 1);
-  if (flag) {
-    cout << ")";
-  }
+  if (flag) cout << ")";
+}
+
+
+void midOrder(BTree *t){
+  if(t==nullptr) return;
+  bool isLeaf = t->left == nullptr && t->right == nullptr;
+  if(!isLeaf) cout<<"(";
+  midOrder(t->left);
+  cout<<t->data;
+  midOrder(t->right);
+  if(!isLeaf) cout<<")";
+}
+
+void func(BTree *root){
+  if(root==nullptr)return;
+  midOrder(root->left);
+  cout<<root->data;
+  midOrder(root->right);
 }

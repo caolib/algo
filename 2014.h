@@ -14,11 +14,8 @@ using namespace std;
 // 根据设计思想，采用C或C++语言描述算法，关键之处给出注释
 
 int getWPL(BTreeII *t, int deep) { // deep为结点的深度
-  if (t == nullptr)
-    return 0;
-  if (t->left == nullptr && t->right == nullptr) { // 是叶子节点
-    return t->weight * deep;
-  }
+  if (t == nullptr) return 0;
+  if (t->left == nullptr && t->right == nullptr) return t->weight * deep; // 是叶子节点
   return getWPL(t->left, deep + 1) + getWPL(t->right, deep + 1);
 }
 
