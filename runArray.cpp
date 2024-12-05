@@ -110,7 +110,7 @@ void testFindMinDistance() {
 
 int main() {
 
-  testMoveArray();
+  // testMoveArray();
 
   // testMidNumber();
 
@@ -118,7 +118,7 @@ int main() {
 
   // testFindNotExist();
 
-  // testFindMinDistance();
+  testFindMinDistance();
 
   return 0;
 }

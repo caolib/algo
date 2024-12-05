@@ -17,18 +17,14 @@ using namespace std;
 
 // 计算绝对值
 int abs(int val) {
-  if (val < 0)
-    return -val;
+  if (val < 0) return -val;
   return val;
 }
 // 找出三个数中的最小值
 int minV(int a, int b, int c) {
   int min = a;
-  if (b < min)
-    min = b;
-  if (c < min)
-    min = c;
-  return min;
+  min = min < b ? min : b;
+  return min < c ? min : c;
 }
 
 // 计算三个数的距离
@@ -44,14 +40,9 @@ int findMinDistance(int s1[], int l1, int s2[], int l2, int s3[], int l3) {
     int d = distance(a, b, c);
     Dm = d < Dm ? d : Dm;
     int min = minV(a, b, c);
-    if (a == min) {
-      i++;
-    } else if (b == min) {
-      j++;
-    } else {
-      k++;
-    }
-
+    if (a == min) i++;
+    else if (b == min) j++;
+    else k++;
     printf("%d\t%d\t%d\t距离：%d\n", a, b, c, d);
   }
   return Dm;
