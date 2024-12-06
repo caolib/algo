@@ -1,38 +1,67 @@
 /**
  * @author clb (1265501579@qq.com)
- * @date 2024-07-23
+ * @date 2024-12-06 15:46:55
  * @brief [2022] 判断一棵使用顺序数组保存的二叉树是否为二叉排序树
- * 算法思想：
- * 1.二叉树中(1开始编号)第k结点 =>
- * 左孩子为2k，右孩子为2K+1,保存在数组(0开始)中索引分别为
- * k-1,2(k-1)+1,2(k-1)+2 => x,2*x+1,2*x+2
- * 2.遍历数组，查看每个结点的左右孩子是否满足 左 < 父 < 右
- * 3.循环完成后说明符合条件，返回true
+ * 算法思想：二叉排序树的中序遍历是一个递增的序列
  * 时间复杂度：O(n)
  * 空间复杂度：O(1)
  */
 #include <iostream>
-using namespace std;
+#define MAX_SIZE 100
 
-bool isBST(int a[], int size) {
-  for (int i = 0; i < size; i++) {
-    // 如果越界说明为空结点，赋值为-1
-    int left = 2 * i + 1 < size ? a[2 * i + 1] : -1;
-    int right = 2 * i + 2 < size ? a[2 * i + 2] : -1;
-    int parent = a[i];
-    // 如果左孩子>=父节点或右孩子<=父节点返回false
-    if ((left != -1 && left >= parent) || right != -1 && right <= parent)
-      return false;
+typedef struct {
+  int SqBiTNode[MAX_SIZE];
+  int ElemNum;
+} SqBiTree;
+
+bool isBSTUtil(SqBiTree tree, int index, int *prev) {
+  if (index >= tree.ElemNum || tree.SqBiTNode[index] == -1) {
+    return true;
   }
-  return true;
+
+  // 左子树
+  if (!isBSTUtil(tree, 2 * index + 1, prev)) {
+    return false;
+  }
+
+  // 当前节点
+  if (tree.SqBiTNode[index] <= *prev) {
+    return false;
+  }
+  *prev = tree.SqBiTNode[index];
+
+  // 右子树
+  return isBSTUtil(tree, 2 * index + 2, prev);
+}
+
+bool isBST(SqBiTree tree) {
+  int prev = -__INT_MAX__;
+  return isBSTUtil(tree, 0, &prev);
 }
 
 int main() {
-  int a[] = {40, 24, 60, -1, 30, -1, 80, -1, -1, 27};
-  int size = sizeof(a) / sizeof(a[0]);
+  SqBiTree tree = {
+      .SqBiTNode = {4, 2, 6, 1, 3, 5, 7}, // 完全二叉树数组表示
+      .ElemNum = 7                         // 有效节点数
+  };
 
-  string res = isBST(a, size) ? "是二叉排序树" : "不是二叉排序树";
-  cout << res << endl;
+  SqBiTree tree2 = {
+      .SqBiTNode = {20,-1,50,-1,-1,10}, // 完全二叉树数组表示
+      .ElemNum = 7                         // 有效节点数
+  };
+
+  if (isBST(tree)) {
+    printf("该二叉树是BST。\n");
+  } else {
+    printf("该二叉树不是BST。\n");
+  }
+
+  
+  if (isBST(tree2)) {
+    printf("该二叉树是BST。\n");
+  } else {
+    printf("该二叉树不是BST。\n");
+  }
 
   return 0;
 }
