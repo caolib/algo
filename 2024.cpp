@@ -27,12 +27,21 @@ int uniquely(MGraph G){
                 index = i;
             }
         }
-        if(count>1) return 0;
-        if(count==0 && e!=0) return 0;
+        if(count>1) {
+            cout<< "不唯一！";
+            return 0;
+        }
+        if(count==0 && e!=0){
+            cout<< "有环！";
+            return 0;
+        }            
         visit[index] = 1;
-        e--;
-        for(int i=0;i<v;i++)
-            G.Edge[index][i] = 0;
+        for(int i=0;i<v;i++){
+            if(G.Edge[index][i] != 0){
+              G.Edge[index][i] = 0;
+              e--;
+            }             
+        }
     }
     return 1;
 }
